@@ -2,11 +2,7 @@ package com.google;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -14,10 +10,10 @@ import java.util.stream.Collectors;
  */
 class VideoLibrary {
 
-  private final HashMap<String, Video> videos;
+  private final TreeMap<String, Video> videos;
 
   VideoLibrary() {
-    this.videos = new HashMap<>();
+    this.videos = new TreeMap<>();
     try {
       File file = new File(this.getClass().getResource("/videos.txt").getFile());
 
@@ -45,6 +41,7 @@ class VideoLibrary {
   List<Video> getVideos() {
     return new ArrayList<>(this.videos.values());
   }
+
 
   /**
    * Get a video by id. Returns null if the video is not found.
